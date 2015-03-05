@@ -9,11 +9,18 @@
         $(document).on('pagecreate','#signIn',function () {
             $('#btnGetAccount').on('click',function(){
 				alert('btnGetAccount clicked');
-				$.getJSON('http://mobile77.webatu.com/json-crud/get_product_details.php?pid=2', function(data) {
+				$.getJSON('http://mobile77.webatu.com/_php_backend/UserSession/get_account.php?userName=admin', function(data) {
 					alert('Hasil: ' + data.success);
 					$('#showAccount').html(data.success);
-				});
+			  });
 			});
+			//$('#btnGetAccount').on('click',function(){
+				//alert('btnGetAccount clicked');
+				//$.getJSON('http://mobile77.webatu.com/json-crud/get_product_details.php?pid=2', function(data) {
+					//alert('Hasil: ' + data.success);
+					//$('#showAccount').html(data.success);
+				//});
+			//});
 			$('#btnSignIn').on('click', function () {
                 alert('Called!');
 
