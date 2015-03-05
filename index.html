@@ -8,7 +8,7 @@
     <script type="text/javascript">
         $(document).on('pageinit', '#signIn', function () {
             $('#btnSignIn').on('click', function () {
-                //alert('Called!');
+                alert('Called!');
 
                 var credential = {
                     userName: $('#dfsUserName').val(),
@@ -22,7 +22,7 @@
                    "http://mobile77.webatu.com/_php_backend/UserSession/sign_in.php",
                    credential,
                    function (dataCredential, status) {
-                       //alert('success: ' + ' ^' + dataCredential.success + ' ^ ' + dataCredential.userName + ' ^ ' + dataCredential.password);
+                       alert('success: ' + ' ^' + dataCredential.success + ' ^ ' + dataCredential.userName + ' ^ ' + dataCredential.password);
                        //alert('success ');
                        if (dataCredential.success == 1) {
                            // jQM 1.3.2 and below
@@ -33,7 +33,8 @@
                            //$.mobile.pageContainer.pagecontainer("change", "home.html"); GA JALAN!!!
 
                            // JS not execute properly when using $.mobile.changePage("home.html")
-                           window.location = 'home.html';
+                           alert('Go to Home ');
+						   window.location = 'home.html';
                        }
                        else {
                            alert('Login gagal!');
@@ -41,6 +42,9 @@
                    },
                    "json"
                 );
+            });
+            $('#navtoHome').on('click', function () {
+                window.location = 'home.html';
             });
         });
     </script>
@@ -60,6 +64,7 @@
                 <label for="btnSignIn" class="ui-hidden-accessible">Sign In:</label>
                 <button class="ui-shadow ui-btn ui-corner-all" type="button" id="btnSignIn">Sign In</button>
             </div>
+			<a href="#" id="navtoHome">Home</a>
         </div>
         <div data-role="footer">By Masdju</div>
     </div>
