@@ -6,7 +6,7 @@
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
-        $(document).on('pageinit', '#signIn', function () {
+        $(document).on('pagecreate', '#signIn', function () {
             $('#btnSignIn').on('click', function () {
                 alert('Called!');
 
@@ -15,7 +15,7 @@
                     password: $('#dfsPassword').val()
                 };
 
-                //alert(credential.userName + ' ^ ' + credential.password);
+                alert(credential.userName + ' ^ ' + credential.password);
 
                 // Post credential
                 $.post(
