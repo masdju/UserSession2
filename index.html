@@ -6,8 +6,15 @@
     <script src="jquery-1.11.2.min.js"></script>
     <script src="jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
-        $(document).on('pagecreate', '#signIn', function () {
-            $('#btnSignIn').on('click', function () {
+        $(document).on('pagecreate','#signIn',function () {
+            $('#btnGetAccount').on('click',function(){
+				alert('btnGetAccount clicked');
+				$.getJSON('http://mobile77.webatu.com/json-crud/get_product_details.php?pid=2', function(data) {
+					alert('Hasil: ' + data.success);
+					$('#showAccount').html(data.success);
+				});
+			});
+			$('#btnSignIn').on('click', function () {
                 alert('Called!');
 
                 var credential = {
@@ -65,6 +72,10 @@
                 <label for="btnSignIn" class="ui-hidden-accessible">Sign In:</label>
                 <button class="ui-shadow ui-btn ui-corner-all" type="button" id="btnSignIn">Sign In</button>
             </div>
+			<br/>
+			<a href="#" id="btnGetAccount">Get Account</a>
+			<div id="showAccount"></div>
+			<br/>
 			<a href="#" id="navtoHome">Home</a>
         </div>
         <div data-role="footer">By Masdju</div>
