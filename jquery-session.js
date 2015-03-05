@@ -47,14 +47,14 @@ $(document).on('pagecreate','#signIn',function () {
                            alert('Go to Home ');
 						   
                            // jQM 1.3.2 and below
-                           $.mobile.changePage("home.html");
+                           //$.mobile.changePage("home.html");
 
                            // jQM 1.4
                            //$.mobile.pageContainer.pagecontainer("change", "#page_id" or "URL");
                            //$.mobile.pageContainer.pagecontainer("change", "home.html"); GA JALAN!!!
 
                            // JS not execute properly when using $.mobile.changePage("home.html")
-						   //window.location = 'home.html';
+						   window.location = 'home.html';
                        }
                        else {
                            alert('Login gagal!');
