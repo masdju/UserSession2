@@ -1,8 +1,8 @@
 $(document).on('pagecreate','#signIn',function () {
 			$('#getdata-button').on("click",function(){
 				alert('Called!');
-				//$.getJSON('http://mobile77.webatu.com/json-crud/json-data.php', function(data) {
-				$.getJSON('http://mobile77.webatu.com/json-crud/json-data.php', function(data) {
+				//$.getJSON('http://mobile77.webatu.com/PhpBackend/UserSession/json-data.php', function(data) {
+				$.getJSON('http://mobile77.webatu.com/PhpBackend/UserSession/json-data.php', function(data) {
 
 					//alert(data); //uncomment this for debug
 
@@ -14,14 +14,14 @@ $(document).on('pagecreate','#signIn',function () {
 			});
             $('#btnGetAccount').on('click',function(){
 				alert('btnGetAccount clicked');
-				$.getJSON('http://mobile77.webatu.com/json-crud/get_product_details.php?pid=2', function(data) {
+				$.getJSON('http://mobile77.webatu.com/PhpBackend/UserSession/get_product_details.php?pid=2', function(data) {
 					alert('Hasil: ' + data.product[0].name);
 					$('#showAccount').html(data.product[0].name);
 			  });
 			});
 			//$('#btnGetAccount').on('click',function(){
 				//alert('btnGetAccount clicked');
-				//$.getJSON('http://mobile77.webatu.com/json-crud/get_product_details.php?pid=2', function(data) {
+				//$.getJSON('http://mobile77.webatu.com/PhpBackend/UserSession/get_product_details.php?pid=2', function(data) {
 					//alert('Hasil: ' + data.success);
 					//$('#showAccount').html(data.success);
 				//});
@@ -38,7 +38,7 @@ $(document).on('pagecreate','#signIn',function () {
 
                 // Post credential
                 $.post(
-                   "http://mobile77.webatu.com/json-crud/sign_in.php",
+                   "http://mobile77.webatu.com/PhpBackend/UserSession/sign_in.php",
                    credential,
                    function (dataCredential, status) {
                        alert('success: ' + ' ^' + dataCredential.success + ' ^ ' + dataCredential.userName + ' ^ ' + dataCredential.password);
