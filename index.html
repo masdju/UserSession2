@@ -7,6 +7,19 @@
     <script src="jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
         $(document).on('pagecreate','#signIn',function () {
+			$('#getdata-button').on("click",function(){
+				alert('Called!');
+				//$.getJSON('http://mobile77.webatu.com/json-crud/json-data.php', function(data) {
+				$.getJSON('http://mobile77.webatu.com/_php_backend/UserSession/json-data.php', function(data) {
+
+					//alert(data); //uncomment this for debug
+
+					//alert (data.item1+" "+data.item2+" "+data.item3); //further debug
+
+					$('#showdata').html("<p>item1="+data.item1+" item2="+data.item2+" item3="+data.item3+"</p>");
+
+				});
+			});
             $('#btnGetAccount').on('click',function(){
 				alert('btnGetAccount clicked');
 				$.getJSON('http://mobile77.webatu.com/_php_backend/UserSession/get_product_details.php?pid=2', function(data) {
@@ -82,6 +95,9 @@
 			<br/>
 			<a href="#" id="btnGetAccount">Get Account</a>
 			<div id="showAccount"></div>
+			<br/>
+			<a href="#" id="getdata-button">Get JSON Data</a>
+			<div id="showdata"></div>
 			<br/>
 			<a href="#" id="navtoHome">Home</a>
         </div>
