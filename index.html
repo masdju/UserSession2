@@ -25,16 +25,17 @@
                        alert('success: ' + ' ^' + dataCredential.success + ' ^ ' + dataCredential.userName + ' ^ ' + dataCredential.password);
                        //alert('success ');
                        if (dataCredential.success == 1) {
+                           alert('Go to Home ');
+						   
                            // jQM 1.3.2 and below
-                           //$.mobile.changePage("home.html");
+                           $.mobile.changePage("home.html");
 
                            // jQM 1.4
                            //$.mobile.pageContainer.pagecontainer("change", "#page_id" or "URL");
                            //$.mobile.pageContainer.pagecontainer("change", "home.html"); GA JALAN!!!
 
                            // JS not execute properly when using $.mobile.changePage("home.html")
-                           alert('Go to Home ');
-						   window.location = 'home.html';
+						   //window.location = 'home.html';
                        }
                        else {
                            alert('Login gagal!');
