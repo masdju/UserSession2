@@ -9,9 +9,9 @@
         $(document).on('pagecreate','#signIn',function () {
             $('#btnGetAccount').on('click',function(){
 				alert('btnGetAccount clicked');
-				$.getJSON('http://mobile77.webatu.com/_php_backend/UserSession/get_account.php?userName=admin', function(data) {
-					alert('Hasil: ' + data.success);
-					$('#showAccount').html(data.success);
+				$.getJSON('http://mobile77.webatu.com/_php_backend/UserSession/get_product_details.php?pid=2', function(data) {
+					alert('Hasil: ' + data.product[0].name);
+					$('#showAccount').html(data.product[0].name);
 			  });
 			});
 			//$('#btnGetAccount').on('click',function(){
