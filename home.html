@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trial User Session - Selamat Datang</title>
+    <link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css" />
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript">
+        //$(document).on("pagebeforecreate", '#home', function (event) {
+        //    alert("pagebeforecreate event fired!");
+        //    $.get(
+        //        "http://mobile77.webatu.com/_php_backend/UserSession/check_session.php",
+        //        function (sessionData, status) {
+        //            alert('User Name#pagebeforecreate: ' + sessionData.userName);
+        //            if (sessionData.userName == null) {
+        //                //$.mobile.changePage("index.html");
+        //                //$.mobile.pageContainer.pagecontainer("change", "index.html");
+        //                window.location = 'index.html';
+        //            };
+        //        },
+        //        "json"
+        //    );
+        //});
+        //$(document).bind('pageinit', function () {
+        //    $.get(
+        //        "http://mobile77.webatu.com/_php_backend/UserSession/check_session.php",
+        //        function (sessionData, status) {
+        //            alert('User Name#bind.pageinit: ' + sessionData.userName);
+        //            if (sessionData.userName == null) {
+        //                $.mobile.changePage("index.html");
+        //            };
+        //        },
+        //        "json"
+        //    );
+        //});
+        $(document).on('pageinit', '#home', function () {
+            $.get(
+                "http://mobile77.webatu.com/_php_backend/UserSession/check_session.php",
+                function (sessionData, status) {
+                    //alert('User Name#on.pageinit: ' + sessionData.userName);
+                    $('#dfsUserName').html(sessionData.userName);
+                    if (sessionData.userName == null) {
+                        //$.mobile.changePage("index.html");
+                        //$.mobile.pageContainer.pagecontainer("change", "index.html");
+                        window.location = 'index.html';
+                    };
+                },
+                "json"
+            );
+            $('#btnSignOut').on('click', function () {
+                //alert('Called!');
+                var credential = {
+                    userName: $('#dfsUserName').html()
+                };
+                $.post(
+                    "http://mobile77.webatu.com/_php_backend/UserSession/sign_out.php",
+                    credential,
+                    function (sessionDestroyedData, status) {
+                        if (sessionDestroyedData.success == 1 && sessionDestroyedData.userName == null) {
+                            //$.mobile.changePage("index.html");
+                            //$.mobile.pageContainer.pagecontainer("change", "index.html");
+                            window.location = 'index.html';
+                        }
+                        else {
+                            alert('Sign Out gagal!');
+                        }
+                    },
+                    "json"
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <h1>Trial User Session - Selamat Datang</h1>
+        </div>
+        <div data-role="main">
+            <p>Halo,</p>
+            <p id="dfsUserName"></p>
+            <a href="#" id="btnSignOut">Sign Out</a>
+        </div>
+        <div data-role="footer">By Masdju</div>
+    </div>
+</body>
+</html>
